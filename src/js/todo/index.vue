@@ -147,10 +147,14 @@ export default {
       };
     },
     hideError() {
-      this.hideError();
+      this.errorMessage = '';
     },
     showError(err) {
-      this.showError(err);
+      if (err.response) {
+        this.errorMessage = err.response.data.message;
+      } else {
+        this.errorMessage = 'ネットに接続がされていない、もしくはサーバーとの接続がされていません。ご確認ください。';
+      }
     },
     addTodo() {
       console.log(Object.assign({}, this.targetTodo));
