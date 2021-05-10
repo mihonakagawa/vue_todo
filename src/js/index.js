@@ -1,7 +1,7 @@
 import Vue from 'vue';
-// import VueRouter from 'vue-router';
+import VueRouter from 'vue-router';
 
-// import routes from 'TodoRouterDir/routes';
+import routes from 'TodoRouterDir/routes';
 // import routes from 'TodoVuexDir/routes';
 // import store from 'TodoVuexDir/store';
 // import routes from 'VuexSample/routes';
@@ -10,20 +10,23 @@ import Vue from 'vue';
 import '../scss/global.scss';
 
 // import myApp from './first';
-import myApp from 'TodoDir';
-// import myApp from 'TodoRouterDir';
+// import myApp from 'TodoDir';
+import myApp from 'TodoRouterDir';
+// ルーティングの定義がされている配列を呼び出し
 // import myApp from 'TodoVuexDir';
 // import myApp from 'VuexSample';
 
-// Vue.use(VueRouter);
-// const router = new VueRouter({
-//   routes,
-//   mode: 'history',
-// });
+Vue.use(VueRouter);
+const router = new VueRouter({
+  routes,
+  mode: 'history',
+});
+// ルーティング用のインスタンスを作成
+// Vue.use(プラグイン);の書き方はVue.js用に作られたプラグインを使うときにする記述
 
 new Vue({
   el: '#app',
-  // router,
+  router,
   // store,
   render: h => h(myApp),
   // render: h => h(myApp), は↓の書き方を短くしたもの
